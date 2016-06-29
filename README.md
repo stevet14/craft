@@ -1,13 +1,18 @@
-Download and install the following tools:
- Node.js
- Bower
- MongoDB
- gulp
- nodemon
+#Craft
 
-Install:
- npm install
- bower install
+## Pre-install Requirements
 
-Run:
- npm run watch
+### Download and install the following tools:
+
+Node.js
+Bower
+MongoDB
+gulp
+nodemon
+
+## Install
+npm install
+bower install
+
+## Run
+npm run watch

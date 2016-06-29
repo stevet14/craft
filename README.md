@@ -4,3 +4,10 @@ Download and install the following tools:
  MongoDB
  gulp
  nodemon
+
+Install:
+ npm install
+ bower install
+
+Run:
+ npm run watch

@@ -40,6 +40,26 @@ app.use(function(req, res) {
     });
 });
 
-app.listen(app.get('port'), function() {
+/**
+ * Socket.io stuff.
+ */
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+var onlineUsers = 0;
+
+io.sockets.on('connection', function(socket) {
+    console.log('User connected!...');
+    onlineUsers++;
+
+    io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
+
+    socket.on('disconnect', function() {
+        onlineUsers--;
+        console.log('User disconnected!...');
+        io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
+    });
+});
+
+server.listen(app.get('port'), function() {
     console.log('Express server listening on port ' + app.get('port'));
 });

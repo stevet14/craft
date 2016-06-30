@@ -2,6 +2,7 @@
  * Created by stevet on 29/06/2016.
  */
 import React from 'react';
+import ReactDOM from 'react-dom';
 import AddBusinessPartnerStore from '../stores/AddBusinessPartnerStore';
 import AddBusinessPartnerActions from '../actions/AddBusinessPartnerActions';
 
@@ -34,17 +35,17 @@ class AddBusinessPartner extends React.Component {
 
         if (!firstName) {
             AddBusinessPartnerActions.invalidFirstName();
-            this.refs.firstNameTextField.getDOMNode().focus();
+            ReactDOM.findDOMNode(this.refs.firstNameTextField).focus();
         }
 
         if (!lastName) {
             AddBusinessPartnerActions.invalidLastName();
-            this.refs.lastNameTextField.getDOMNode().focus();
+            ReactDOM.findDOMNode(this.refs.lastNameTextField).focus();
         }
 
         if (!email) {
             AddBusinessPartnerActions.invalidEmail();
-            this.refs.emailNameTextField.getDOMNode().focus();
+            ReactDOM.findDOMNode(this.refs.emailTextField).focus();
         }
 
         if (firstName && lastName && email) {

@@ -27,20 +27,28 @@ class AddBusinessPartner extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        var name = this.state.name.trim();
-        var gender = this.state.gender;
+        var title = this.state.title;
+        var firstName = this.state.firstName.trim();
+        var lastName = this.state.lastName.trim();
+        var email = this.state.email.trim();
 
-        if (!name) {
-            AddBusinessPartnerActions.invalidName();
-            this.refs.nameTextField.getDOMNode().focus();
+        if (!firstName) {
+            AddBusinessPartnerActions.invalidFirstName();
+            this.refs.firstNameTextField.getDOMNode().focus();
         }
 
-        if (!gender) {
-            AddBusinessPartnerActions.invalidGender();
+        if (!lastName) {
+            AddBusinessPartnerActions.invalidLastName();
+            this.refs.lastNameTextField.getDOMNode().focus();
         }
 
-        if (name && gender) {
-            AddBusinessPartnerActions.addBusinessPartner(name, gender);
+        if (!email) {
+            AddBusinessPartnerActions.invalidEmail();
+            this.refs.emailNameTextField.getDOMNode().focus();
+        }
+
+        if (firstName && lastName && email) {
+            AddBusinessPartnerActions.addBusinessPartner(title, firstName, lastName, email);
         }
     }
 
@@ -53,42 +61,30 @@ class AddBusinessPartner extends React.Component {
                             <div className='panel-heading'>Add Business Partner</div>
                             <div className='panel-body'>
                                 <form onSubmit={this.handleSubmit.bind(this)}>
-                                    <div className={'form-group ' + this.state.nameValidationState}>
+                                    <div className={'form-group ' + this.state.firstNameValidationState}>
                                         <label className='control-label'>Title / First Name</label>
-                                        <div className='form-group row  form-inline'>
-                                            <select className='form-control'>
+                                        <div className='form-group form-inline'>
+                                            <select className='form-control' onChange={AddBusinessPartnerActions.updateTitle} value={this.state.title}>
                                                 <option>Mr</option>
                                                 <option>Mrs</option>
                                                 <option>Miss</option>
                                             </select>
-                                            <input type='text' className='form-control' ref='nameTextField' value={this.state.name}
-                                                   onChange={AddBusinessPartnerActions.updateName} autoFocus/>
+                                            <input type='text' className='form-control' ref='firstNameTextField' value={this.state.firstName}
+                                                   onChange={AddBusinessPartnerActions.updateFirstName} autoFocus/>
                                             <span className='help-block'>{this.state.helpBlock}</span>
                                         </div>
                                     </div>
-                                    <div className={'form-group ' + this.state.nameValidationState}>
+                                    <div className={'form-group ' + this.state.lastNameValidationState}>
                                         <label className='control-label'>Business Name / Last Name</label>
-                                        <input type='text' className='form-control' ref='nameTextField' value={this.state.name}
-                                               onChange={AddBusinessPartnerActions.updateName} autoFocus/>
+                                        <input type='text' className='form-control' ref='lastNameTextField' value={this.state.lastName}
+                                               onChange={AddBusinessPartnerActions.updateLastName} />
                                         <span className='help-block'>{this.state.helpBlock}</span>
                                     </div>
-                                    <div className={'form-group ' + this.state.nameValidationState}>
+                                    <div className={'form-group ' + this.state.emailValidationState}>
                                         <label className='control-label'>Email</label>
-                                        <input type='text' className='form-control' ref='nameTextField' value={this.state.name}
-                                               onChange={AddBusinessPartnerActions.updateName} autoFocus/>
+                                        <input type='email' className='form-control' ref='emailTextField' value={this.state.email}
+                                               onChange={AddBusinessPartnerActions.updateEmail} autoFocus/>
                                         <span className='help-block'>{this.state.helpBlock}</span>
-                                    </div>
-                                    <div className={'form-group ' + this.state.genderValidationState}>
-                                        <div className='radio radio-inline'>
-                                            <input type='radio' name='gender' id='female' value='Female' checked={this.state.gender === 'Female'}
-                                                   onChange={AddBusinessPartnerActions.updateGender}/>
-                                            <label htmlFor='female'>Female</label>
-                                        </div>
-                                        <div className='radio radio-inline'>
-                                            <input type='radio' name='gender' id='male' value='Male' checked={this.state.gender === 'Male'}
-                                                   onChange={AddBusinessPartnerActions.updateGender}/>
-                                            <label htmlFor='male'>Male</label>
-                                        </div>
                                     </div>
                                     <button type='submit' className='btn btn-primary'>Submit</button>
                                 </form>

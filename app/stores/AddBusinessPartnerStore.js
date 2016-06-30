@@ -7,41 +7,61 @@ import AddBusinessPartnerActions from '../actions/AddBusinessPartnerActions';
 class AddBusinessPartnerStore {
     constructor() {
         this.bindActions(AddBusinessPartnerActions);
-        this.name = '';
-        this.gender = '';
+        this.title = '';
+        this.firstName = '';
+        this.lastName = '';
+        this.email = '';
+        this.firstNameValidationState = '';
+        this.lastNameValidationState = '';
+        this.emailValidationState = '';
         this.helpBlock = '';
-        this.nameValidationState = '';
-        this.genderValidationState = '';
     }
 
     onAddBusinessPartnerSuccess(successMessage) {
-        this.nameValidationState = 'has-success';
+        this.firstNameValidationState = 'has-success';
         this.helpBlock = successMessage;
     }
 
     onAddBusinessPartnerFail(errorMessage) {
-        this.nameValidationState = 'has-error';
+        this.firstNameValidationState = 'has-error';
         this.helpBlock = errorMessage;
     }
 
-    onUpdateName(event) {
-        this.name = event.target.value;
-        this.nameValidationState = '';
+    onUpdateTitle(event) {
+        this.title = event.target.value;
+    }
+
+    onUpdateFirstName(event) {
+        this.firstName = event.target.value;
+        this.firstNameValidationState = '';
         this.helpBlock = '';
     }
 
-    onUpdateGender(event) {
-        this.gender = event.target.value;
-        this.genderValidationState = '';
+    onUpdateLastName(event) {
+        this.lastName = event.target.value;
+        this.lastNameValidationState = '';
+        this.helpBlock = '';
     }
 
-    onInvalidName() {
-        this.nameValidationState = 'has-error';
-        this.helpBlock = 'Please enter a BusinessPartner name.';
+    onUpdateEmail(event) {
+        this.email = event.target.value;
+        this.emailValidationState = '';
+        this.helpBlock = '';
     }
 
-    onInvalidGender() {
-        this.genderValidationState = 'has-error';
+    onInvalidFirstName() {
+        this.firstNameValidationState = 'has-error';
+        this.helpBlock = 'Please enter a first name.';
+    }
+
+    onInvalidLastName() {
+        this.lastNameValidationState = 'has-error';
+        this.helpBlock = 'Please enter a last name.';
+    }
+
+    onInvalidEmail() {
+        this.emailValidationState = 'has-error';
+        this.helpBlock = 'Please enter a valid email address.';
     }
 }
 

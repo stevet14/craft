@@ -8,18 +8,21 @@ class AddBusinessPartnerActions {
         this.generateActions(
             'addBusinessPartnerSuccess',
             'addBusinessPartnerFail',
-            'updateName',
-            'updateGender',
-            'invalidName',
-            'invalidGender'
+            'updateTitle',
+            'updateFirstName',
+            'updateLastName',
+            'updateEmail',
+            'invalidFirstName',
+            'invalidLastName',
+            'invalidEmail'
         );
     }
 
-    addBusinessPartner(name, gender) {
+    addBusinessPartner(title, firstName, lastName, email) {
         $.ajax({
             type: 'POST',
-            url: '/api/BusinessPartners',
-            data: { name: name, gender: gender }
+            url: '/api/business-partners',
+            data: { title: title, firstName: firstName,  lastName: lastName, email: email}
         })
             .done((data) => {
                 this.actions.addBusinessPartnerSuccess(data.message);

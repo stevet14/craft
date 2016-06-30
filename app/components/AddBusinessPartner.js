@@ -65,10 +65,10 @@ class AddBusinessPartner extends React.Component {
                                     <div className={'form-group ' + this.state.firstNameValidationState}>
                                         <label className='control-label'>Title / First Name</label>
                                         <div className='form-group form-inline'>
-                                            <select className='form-control' onChange={AddBusinessPartnerActions.updateTitle}>
-                                                <option value={this.state.title} selected>Mr</option>
-                                                <option value={this.state.title}>Mrs</option>
-                                                <option value={this.state.title}>Miss</option>
+                                            <select className='form-control' onChange={AddBusinessPartnerActions.updateTitle} defaultValue='Mr'>
+                                                <option value='Mr'>Mr</option>
+                                                <option value='Mrs'>Mrs</option>
+                                                <option value='Miss'>Miss</option>
                                             </select>
                                             <input type='text' className='form-control' ref='firstNameTextField' value={this.state.firstName}
                                                    onChange={AddBusinessPartnerActions.updateFirstName} autoFocus/>

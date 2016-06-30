@@ -7,7 +7,7 @@ import AddBusinessPartnerActions from '../actions/AddBusinessPartnerActions';
 class AddBusinessPartnerStore {
     constructor() {
         this.bindActions(AddBusinessPartnerActions);
-        this.title = '';
+        this.title = 'Mr';
         this.firstName = '';
         this.lastName = '';
         this.email = '';

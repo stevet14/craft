@@ -48,7 +48,7 @@ class AddBusinessPartner extends React.Component {
             ReactDOM.findDOMNode(this.refs.emailTextField).focus();
         }
 
-        if (firstName && lastName && email) {
+        if (title && firstName && lastName && email) {
             AddBusinessPartnerActions.addBusinessPartner(title, firstName, lastName, email);
         }
     }
@@ -66,7 +66,7 @@ class AddBusinessPartner extends React.Component {
                                         <label className='control-label'>Title / First Name</label>
                                         <div className='form-group form-inline'>
                                             <select className='form-control' onChange={AddBusinessPartnerActions.updateTitle} value={this.state.title}>
-                                                <option>Mr</option>
+                                                <option selected>Mr</option>
                                                 <option>Mrs</option>
                                                 <option>Miss</option>
                                             </select>

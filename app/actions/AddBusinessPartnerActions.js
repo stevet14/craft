@@ -19,6 +19,7 @@ class AddBusinessPartnerActions {
     }
 
     addBusinessPartner(title, firstName, lastName, email) {
+        console.log('Title: ' + title + ', First Name: ' + firstName + ', Last Name: ' + lastName + ', Email: ' + email);
         $.ajax({
             type: 'POST',
             url: '/api/business-partners',

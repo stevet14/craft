@@ -55,11 +55,13 @@ class AddBusinessPartnerStore {
 
     onInvalidLastName() {
         this.lastNameValidationState = 'has-error';
+        this.addBusinessPartnerState = 'alert-danger';
         this.errors.push('Please enter a last name.');
     }
 
     onInvalidEmail() {
         this.emailValidationState = 'has-error';
+        this.addBusinessPartnerState = 'alert-danger';
         this.errors.push('Please enter a valid email address.');
     }
 }

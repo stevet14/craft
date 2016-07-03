@@ -57,7 +57,7 @@ class AddBusinessPartner extends React.Component {
     render() {
         let errorsList = this.state.errors.map((error, index) => {
            return (
-             <li><a href='#firstNameTextField'>{error}</a></li>
+             <li key={index}><a href='#firstNameTextField'>{error}</a></li>
            );
         });
 
@@ -68,12 +68,15 @@ class AddBusinessPartner extends React.Component {
                         <div className='panel panel-default'>
                             <div className='panel-heading'>Add Business Partner</div>
                             <div className='panel-body'>
-                                <div className={'alert ' + this.state.addBusinessPartnerState}>
-                                    There was an error with your submission
-                                    <ul>
-                                        {errorsList}
-                                    </ul>
-                                </div>
+                                {errorsList.length > 0 ?
+                                    <div className={'alert ' + this.state.addBusinessPartnerState}>
+                                        There was an error with your submission
+                                        <ul>
+                                            {errorsList}
+                                        </ul>
+                                    </div>
+                                    : null
+                                }
                                 <form onSubmit={this.handleSubmit.bind(this)}>
                                     <div className={'form-group ' + this.state.firstNameValidationState}>
                                         <label className='control-label'>Title / First Name<sup>*</sup></label>

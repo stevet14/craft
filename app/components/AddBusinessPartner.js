@@ -23,11 +23,13 @@ class AddBusinessPartner extends React.Component {
     }
 
     onChange(state) {
+        this.state.errors = [];
         this.setState(state);
     }
 
     handleSubmit(event) {
         event.preventDefault();
+        this.state.errors.length = 0;
 
         var title = this.state.title;
         var firstName = this.state.firstName.trim();

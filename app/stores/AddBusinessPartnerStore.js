@@ -14,17 +14,18 @@ class AddBusinessPartnerStore {
         this.firstNameValidationState = '';
         this.lastNameValidationState = '';
         this.emailValidationState = '';
-        this.helpBlock = '';
+        this.addBusinessPartnerState = '';
+        this.errors = [];
     }
 
     onAddBusinessPartnerSuccess(successMessage) {
-        this.firstNameValidationState = 'has-success';
-        this.helpBlock = successMessage;
+        this.addBusinessPartnerState = 'alert-success';
+        this.errors.push(successMessage);
     }
 
     onAddBusinessPartnerFail(errorMessage) {
-        this.firstNameValidationState = 'has-error';
-        this.helpBlock = errorMessage;
+        this.addBusinessPartnerState = 'alert-danger';
+        this.errors.push(errorMessage);
     }
 
     onUpdateTitle(event) {
@@ -34,34 +35,32 @@ class AddBusinessPartnerStore {
     onUpdateFirstName(event) {
         this.firstName = event.target.value;
         this.firstNameValidationState = '';
-        this.helpBlock = '';
     }
 
     onUpdateLastName(event) {
         this.lastName = event.target.value;
         this.lastNameValidationState = '';
-        this.helpBlock = '';
     }
 
     onUpdateEmail(event) {
         this.email = event.target.value;
         this.emailValidationState = '';
-        this.helpBlock = '';
     }
 
     onInvalidFirstName() {
         this.firstNameValidationState = 'has-error';
-        this.helpBlock = 'Please enter a first name.';
+        this.addBusinessPartnerState = 'alert-danger';
+        this.errors.push('Please enter a first name.');
     }
 
     onInvalidLastName() {
         this.lastNameValidationState = 'has-error';
-        this.helpBlock = 'Please enter a last name.';
+        this.errors.push('Please enter a last name.');
     }
 
     onInvalidEmail() {
         this.emailValidationState = 'has-error';
-        this.helpBlock = 'Please enter a valid email address.';
+        this.errors.push('Please enter a valid email address.');
     }
 }
 

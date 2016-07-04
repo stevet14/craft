@@ -73,7 +73,12 @@ class AddBusinessPartner extends React.Component {
                             <div className='panel-body'>
                                 {errorsList.length > 0 ?
                                     <div className={'alert ' + this.state.addBusinessPartnerState}>
-                                        There was an error with your submission
+                                        {(() => {
+                                            switch (this.state.addBusinessPartnerState) {
+                                                case "alert-success":   return "Operation successful";
+                                                default:                return "There was an error with your submission";
+                                            }
+                                        })()}
                                         <ul>
                                             {errorsList}
                                         </ul>

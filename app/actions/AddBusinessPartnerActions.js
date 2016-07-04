@@ -36,15 +36,11 @@ class AddBusinessPartnerActions {
     }
 
     addBusinessPartnerSuccess(message) {
-        return (dispatch) => {
-            dispatch(message);
-        }
+        return message;
     }
 
     addBusinessPartnerFail(message) {
-        return (dispatch) => {
-            dispatch(message);
-        }
+        return message;
     }
 }
 

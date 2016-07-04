@@ -23,7 +23,6 @@ class AddBusinessPartner extends React.Component {
     }
 
     onChange(state) {
-        this.state.errors = [];
         this.setState(state);
     }
 
@@ -68,7 +67,9 @@ class AddBusinessPartner extends React.Component {
                 <div className='row flipInX animated'>
                     <div className='col-sm-8'>
                         <div className='panel panel-default'>
-                            <div className='panel-heading'>Add Business Partner</div>
+                            <div className='panel-heading'>Add Business Partner
+                                <span className='help-block'>{this.state.helpBlock}</span>
+                            </div>
                             <div className='panel-body'>
                                 {errorsList.length > 0 ?
                                     <div className={'alert ' + this.state.addBusinessPartnerState}>

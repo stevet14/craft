@@ -6,8 +6,8 @@ import alt from '../alt';
 class AddBusinessPartnerActions {
     constructor() {
         this.generateActions(
-            'addBusinessPartnerSuccess',
-            'addBusinessPartnerFail',
+//            'addBusinessPartnerSuccess',
+//            'addBusinessPartnerFail',
             'updateTitle',
             'updateFirstName',
             'updateLastName',
@@ -26,11 +26,25 @@ class AddBusinessPartnerActions {
             data: { title: title, firstName: firstName,  lastName: lastName, email: email}
         })
             .done((data) => {
-                this.actions.addBusinessPartnerSuccess(data.message);
+                this.addBusinessPartnerSuccess(data.message);
             })
-            .fail((jqXhr) => {
-                this.actions.addBusinessPartnerFail(jqXhr.responseJSON.message);
+            .error((jqXhr) => {
+                this.addBusinessPartnerFail(jqXhr.responseJSON.message);
+                //this.actions.addBusinessPartnerFail(jqXhr.responseJSON.message);
+
             });
+    }
+
+    addBusinessPartnerSuccess(message) {
+        return (dispatch) => {
+            dispatch(message);
+        }
+    }
+
+    addBusinessPartnerFail(message) {
+        return (dispatch) => {
+            dispatch(message);
+        }
     }
 }
 

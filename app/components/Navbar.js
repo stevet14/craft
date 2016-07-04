@@ -92,7 +92,7 @@ class Navbar extends React.Component {
                     </form>
                     <ul className='nav navbar-nav'>
                         <li><Link to='/'>Home</Link></li>
-                        <li><Link to='/businessPartners'>Business Partners</Link></li>
+                        <li><Link to='/businessPartnerList'>Business Partners</Link></li>
                         <li><Link to='/addBusinessPartner'>Add Business Partner</Link></li>
                     </ul>
                 </div>

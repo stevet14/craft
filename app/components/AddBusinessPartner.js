@@ -39,9 +39,9 @@ class AddBusinessPartner extends React.Component {
         var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 
-        if (!firstName) {
-            AddBusinessPartnerActions.invalidFirstName();
-            ReactDOM.findDOMNode(this.refs.firstNameTextField).focus();
+        if (!email || !email.match(mailformat)) {
+            AddBusinessPartnerActions.invalidEmail();
+            ReactDOM.findDOMNode(this.refs.emailTextField).focus();
         }
 
         if (!lastName) {
@@ -49,13 +49,14 @@ class AddBusinessPartner extends React.Component {
             ReactDOM.findDOMNode(this.refs.lastNameTextField).focus();
         }
 
-        if (!email || !email.match(mailformat)) {
-            AddBusinessPartnerActions.invalidEmail();
-            ReactDOM.findDOMNode(this.refs.emailTextField).focus();
+        if (!firstName) {
+            AddBusinessPartnerActions.invalidFirstName();
+            ReactDOM.findDOMNode(this.refs.firstNameTextField).focus();
         }
 
         if (title && firstName && lastName && email && email.match(mailformat)) {
             AddBusinessPartnerActions.addBusinessPartner(title, firstName, lastName, email);
+            ReactDOM.findDOMNode(this.refs.firstNameTextField).focus();
         }
     }
 

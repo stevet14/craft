@@ -5,8 +5,8 @@ import alt from '../alt';
 import AddBusinessPartnerActions from '../actions/AddBusinessPartnerActions';
 
 class AddBusinessPartnerStore {
-    constructor() {
-        this.bindActions(AddBusinessPartnerActions);
+
+    initialise() {
         this.title = 'Mr';
         this.firstName = '';
         this.lastName = '';
@@ -18,8 +18,13 @@ class AddBusinessPartnerStore {
         this.errors = [];
     }
 
+    constructor() {
+        this.bindActions(AddBusinessPartnerActions);
+        this.initialise();
+    }
+
     onAddBusinessPartnerSuccess(successMessage) {
-        this.constructor();
+        this.initialise();
         toastr.success('Business Partner saved successfully!');
     }
 

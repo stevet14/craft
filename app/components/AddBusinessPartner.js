@@ -110,7 +110,7 @@ class AddBusinessPartner extends React.Component {
                                     <div className={'form-group ' + this.state.emailValidationState}>
                                         <label className='control-label'>Email<sup>*</sup></label>
                                         <input type='email' className='form-control' ref='emailTextField' value={this.state.email}
-                                               onChange={AddBusinessPartnerActions.updateEmail} autoFocus/>
+                                               onChange={AddBusinessPartnerActions.updateEmail} />
                                     </div>
                                     <button type='submit' className='btn btn-primary'>Submit</button>
                                 </form>

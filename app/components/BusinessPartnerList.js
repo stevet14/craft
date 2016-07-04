@@ -4,19 +4,20 @@
 import React from 'react';
 import {Link} from 'react-router';
 import ReactDOM from 'react-dom';
-//import BusinessPartnerListStore from '../stores/BusinessPartnerListStore';
-//import BusinessPartnerListActions from '../actions/BusinessPartnerListActions';
+import BusinessPartnerListStore from '../stores/BusinessPartnerListStore';
+import BusinessPartnerListActions from '../actions/BusinessPartnerListActions';
 
 class BusinessPartnerList extends React.Component {
     constructor(props) {
         super(props);
-//        this.state = BusinessPartnerListStore.getState();
-//        this.onChange = this.onChange.bind(this);
+        this.state = BusinessPartnerListStore.getState();
+        this.onChange = this.onChange.bind(this);
     }
 
-/*
+
     componentDidMount() {
         BusinessPartnerListStore.listen(this.onChange);
+        BusinessPartnerListActions.getBusinessPartnerList();
     }
 
     componentWillUnmount() {
@@ -26,9 +27,20 @@ class BusinessPartnerList extends React.Component {
     onChange(state) {
         this.setState(state);
     }
-*/
+
 
     render() {
+
+        let tableEntries = this.state.businessPartners.map((businessPartner, index) => {
+            return (
+                <tr key={index}>
+                    <td>{businessPartner.title}</td>
+                    <td>{businessPartner.firstName}</td>
+                    <td>{businessPartner.lastName}</td>
+                    <td>{businessPartner.email}</td>
+                </tr>
+            );
+        });
 
         return (
             <div className='container'>
@@ -50,24 +62,7 @@ class BusinessPartnerList extends React.Component {
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
+                        {tableEntries}
                         </tbody>
                     </table>
                 </div>

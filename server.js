@@ -74,6 +74,20 @@ app.post('/api/business-partners', function(req, res, next) {
     ]);
 });
 
+/**
+ * GET /api/businessPartnerList
+ * Returns all Business Partners in the database.
+ */
+app.get('/api/businessPartnerList', function(req, res, next) {
+    BusinessPartner.find()
+        .exec(function(err, businessPartners) {
+            if (err) return next(err);
+            if (businessPartners.length > 0) {
+                return res.send(businessPartners);
+            }
+        });
+});
+
 app.use(function(req, res) {
     Router.match({ routes: routes.default, location: req.url }, function(err, redirectLocation, renderProps) {
         if (err) {

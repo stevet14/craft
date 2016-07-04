@@ -21,6 +21,7 @@ class AddBusinessPartnerStore {
     onAddBusinessPartnerSuccess(successMessage) {
 //        this.addBusinessPartnerState = 'alert-success';
 //        this.errors.push(successMessage);
+        this.constructor();
         toastr.success('Business Partner saved successfully!');
     }
 

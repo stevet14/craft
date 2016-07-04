@@ -6,8 +6,6 @@ import alt from '../alt';
 class AddBusinessPartnerActions {
     constructor() {
         this.generateActions(
-//            'addBusinessPartnerSuccess',
-//            'addBusinessPartnerFail',
             'updateTitle',
             'updateFirstName',
             'updateLastName',
@@ -19,7 +17,6 @@ class AddBusinessPartnerActions {
     }
 
     addBusinessPartner(title, firstName, lastName, email) {
-//        console.log('Title: ' + title + ', First Name: ' + firstName + ', Last Name: ' + lastName + ', Email: ' + email);
         $.ajax({
             type: 'POST',
             url: '/api/business-partners',
@@ -30,8 +27,6 @@ class AddBusinessPartnerActions {
             })
             .error((jqXhr) => {
                 this.addBusinessPartnerFail(jqXhr.responseJSON.message);
-                //this.actions.addBusinessPartnerFail(jqXhr.responseJSON.message);
-
             });
     }
 

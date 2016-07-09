@@ -15,7 +15,7 @@ class Footer extends React.Component {
                         </div>
                         <div className='col-sm-5'>
                             <h3><strong>Source Code</strong></h3>
-                            <p>You may view the <strong><a href='https://github.com/stevet/craft'>Source Code</a></strong> behind this project on GitHub. © 2016 Steve Taplin.</p>
+                            <p>You may view the <strong><a href='https://github.com/stevet14/craft'>Source Code</a></strong> behind this project on GitHub. © 2016 Steve Taplin.</p>
                         </div>
                     </div>
                 </div>
